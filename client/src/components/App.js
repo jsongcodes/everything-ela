@@ -1,8 +1,13 @@
 import { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
+import '../App.css';
+import Login from "./Login";
+import MainContainer from "./MainContainer";
+import Header from "./Header";
 
 function App() {
-  // const [count, setCount] = useState(0);
+  const [student, setStudent] = useState(null);
+  const [postData, setPostData] = useState([]);
 
   // useEffect(() => {
   //   fetch("/hello")
