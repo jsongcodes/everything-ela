@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -11,7 +11,6 @@ function App() {
   // }, []);
 
   return (
-    <BrowserRouter>
       <div className="App">
         <Switch>
           <Route path="/testing">
@@ -22,7 +21,6 @@ function App() {
           </Route>
         </Switch>
       </div>
-    </BrowserRouter>
   );
 }
 
