@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: positive_place_production
-  username: positive_place
-  password: <%= ENV["POSITIVE_PLACE_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
