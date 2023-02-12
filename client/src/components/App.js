@@ -1,32 +1,50 @@
 import { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
-import '../App.css';
+import "../App.css";
 import Login from "./Login";
 import MainContainer from "./MainContainer";
 import Header from "./Header";
 
-function App() {
+const App = () => {
   const [student, setStudent] = useState(null);
   const [postData, setPostData] = useState([]);
 
-  // useEffect(() => {
-  //   fetch("/hello")
-  //     .then((r) => r.json())
-  //     .then((data) => setCount(data.count));
-  // }, []);
+  useEffect(() => {
+    fetch("/me").then((response) => {
+      if (response.ok) {
+        response.json().then((student) => setStudent(student));
+      }
+    });
+  }, []);
 
+  useEffect(() => {
+    fetch("/posts")
+      .then((r) => r.json())
+      .then((post) => setPostData(post));
+  }, []);
+
+  const handleLogout = () => {
+    setStudent(null);
+  };
+
+  if (!student) return <Login onLogin={setStudent} />;
   return (
-      <div className="App">
-        <Switch>
-          <Route path="/testing">
-            <h1>Test Route</h1>
-          </Route>
-          <Route path="/">
-            {/* <h1>Page Count: {count}</h1> */}
-          </Route>
-        </Switch>
-      </div>
+    <div className="App">
+      <Header
+        student={student}
+        setStudent={setStudent}
+        onLogout={handleLogout}
+      />
+      <Switch>
+        <Route exact path="/posts">
+          <MainContainer
+            postData={postData}
+            student={student}
+          />
+        </Route>
+      </Switch>
+    </div>
   );
-}
+};
 
 export default App;
