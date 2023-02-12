@@ -38,7 +38,7 @@ const Logo = styled.h1`
 font-family: 'Bungee Outline', cursive;
 font-style: italic;
   color: white;
-  text-shadow: 1px 1px 10px #03045e;
+  text-shadow: 1px 1px 10px #F4D160;
   font-size: 100px;
   margin: 8px 0 16px;
   text-align: center;
@@ -52,7 +52,7 @@ const Wrapper = styled.section`
 
 const Divider = styled.hr`
   border: none;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #FBEEAC;
   margin: 16px 0;
 `;
 

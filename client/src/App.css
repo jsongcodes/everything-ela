@@ -9,7 +9,7 @@
 .header {
   font-family: 'Bungee Outline', cursive;
   color: #ffffff;
-  text-shadow: 1px 1px 10px #03045e;
+  text-shadow: 1px 1px 10px #F4D160;
   font-size: 100px;
   text-align: center;
   padding-top: 25px;
@@ -17,6 +17,6 @@
  }
  .header-background{
    height: 150px;
-   background-color: #a0e9f8;
+   background-color: #8AC4D0;
    margin: 0 auto;
  }
