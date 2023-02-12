@@ -38,7 +38,7 @@ const Logo = styled.h1`
 font-family: 'Bungee Outline', cursive;
 font-style: italic;
   color: white;
-  text-shadow: 1px 1px 10px #F4D160;
+  text-shadow: 1px 1px 10px #FF9E9E;
   font-size: 100px;
   margin: 8px 0 16px;
   text-align: center;

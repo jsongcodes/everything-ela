@@ -4,12 +4,13 @@
 *{
   font-family: 'Patrick Hand SC', cursive;
   font-size: 35px;
+  background-color: #FFFFD0;
 }
 
 .header {
   font-family: 'Bungee Outline', cursive;
   color: #ffffff;
-  text-shadow: 1px 1px 10px #F4D160;
+  text-shadow: 1px 1px 10px #CEEDC7;
   font-size: 100px;
   text-align: center;
   padding-top: 25px;
@@ -17,6 +18,6 @@
  }
  .header-background{
    height: 150px;
-   background-color: #8AC4D0;
+   background-color: #C0EEE4;
    margin: 0 auto;
  }
