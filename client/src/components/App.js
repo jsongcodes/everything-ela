@@ -23,6 +23,17 @@ const App = () => {
       .then((post) => setPostData(post));
   }, []);
 
+  function handleUpdateItem(updatedItemObj) {
+    const editedItems = postData.map((item) => {
+      if (item.id === updatedItemObj.id) {
+        return updatedItemObj;
+      } else {
+        return item;
+      }
+    });
+    setPostData(editedItems);
+  }
+
   const handleLogout = () => {
     setStudent(null);
   };
@@ -40,6 +51,7 @@ const App = () => {
           <MainContainer
             postData={postData}
             student={student}
+            handleUpdateItem={handleUpdateItem} 
           />
         </Route>
       </Switch>
