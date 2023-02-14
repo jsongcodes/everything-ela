@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :comments
-  resources :posts, only: [:index, :show, :update]
+  resources :posts, only: [:index, :show, :create]
   post "/signup", to: "students#create"
   get "/me", to: "students#show"
   post "/login", to: "sessions#create"
