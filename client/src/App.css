@@ -1,23 +1,390 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Outline&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yantramanav&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
 
 *{
-  font-family: 'Patrick Hand SC', cursive;
-  font-size: 35px;
-  background-color: #FFFFD0;
+  /* font-family: 'Patrick Hand SC', cursive; */
+  /* font-family: 'Yantramanav', sans-serif; */
+  font-family: 'Varela Round', sans-serif;
+
+  font-size: 25px;
+  /* background-color: #FCFFD1; */
 }
 
 .header {
   font-family: 'Bungee Outline', cursive;
-  color: #ffffff;
-  text-shadow: 1px 1px 10px #CEEDC7;
+font-style: italic;
+  color: white;
+  text-shadow: 1px 1px 10px #FF8E8E;
   font-size: 100px;
+  margin: 8px 0 16px;
   text-align: center;
-  padding-top: 25px;
-  margin: 0 auto;
+  background-color: #FCFFD1;
+  padding: 50px;
  }
  .header-background{
    height: 150px;
    background-color: #C0EEE4;
    margin: 0 auto;
  }
+
+ .nav-button{
+  text-align: center;
+  background-color: #caf0f8;
+  font-weight: bold;
+  border-radius: 15px;
+  color: #0096C7;
+  box-shadow: 2px 2px #03045e;
+  text-shadow: 2px 2px #ffffff;
+  font-size: 25px;
+  float: right;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding: 10px;
+  padding-bottom: 0 auto;
+  text-decoration: none;
+  transition: all .2s ease-in-out;
+
+}
+.nav-button:hover{
+  box-shadow: 5px 5px #03045e;
+}
+
+.logout-button{
+  text-align: center;
+  background-color: #FFDCA9;
+  font-weight: bold;
+  border-radius: 15px;
+  color: #ffffff;
+  box-shadow: 2px 2px #ffffff;
+  text-shadow: 1px 1px #737ab9;
+  font-size: 25px;
+  float: right;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding: 10px;
+  padding-bottom: 0 auto;
+  text-decoration: none;
+  border: none;
+  transition: all .2s ease-in-out;
+}
+.logout-button:hover{
+  box-shadow: 5px 5px #ffffff;
+}
+
+.welcome{
+  /* font-family: 'Bungee Outline', cursive; */
+  color: #ffffff;
+  text-shadow: 2px 2px #03045e;
+  font-size: 40px;
+  text-align: left;
+  padding-top: 10px;
+  margin: 0 auto;
+  margin-left: 50px;
+}
+
+.post-list{
+  /* margin-top: 60px;
+  text-align: center;
+  display: block;
+  align-items: center;
+  margin: auto; */
+  padding: 10px;
+}
+
+/* post cards */
+
+.post-card-title {
+color: #03045E;
+}
+
+.post-card-category {
+  color: #03045E;
+}
+
+.post-card-description {
+  color: #03045E;
+}
+.postimage {
+  width: 70%;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.post-container{
+  display: grid;
+  margin: 0 auto;
+  max-height: 25rem;
+  grid-template-columns: auto auto auto;
+  gap: 9% 5%;
+  padding-right: 2%;
+  padding-left: 2%;
+  padding-bottom: 2%;
+  min-width: 1rem;
+}
+
+.post-item{
+  display: flex;
+  flex-direction: column;
+  background-color: #caf0f8;  
+  align-content: center;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  text-align: center;
+  padding: 5%;
+  border-radius: 25px;
+  box-shadow: 5px 5px #48cae4;
+  transition: .7s;
+}
+.post-item:hover{
+  box-shadow: 5px 5px #03045e;
+}
+
+.like-button{
+  border: none;
+  aspect-ratio: 1;
+  border-radius: 50%; 
+  display: grid; 
+  place-items: center;
+  height: 50%;
+  border-radius: 50%;
+  background-color: #ffffff;
+  text-align: center;
+  margin-bottom: 10%;
+  transition: .5s;
+}
+
+.like-button:hover{
+  background-color:#ff7eb2;
+  box-shadow: 0px 0px 2px #ffffff;
+}
+
+button {
+  background: #F9E6F2;
+  color: #434142;
+  border: 1;
+  border-color: #E0D3DB;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 15px;
+  cursor: pointer;
+  margin: 20px;
+  font-family: 'Montserrat Alternates', sans-serif;
+} 
+
+.comment-page-title {
+  padding-top: 150px;
+  text-align: center;
+  font-size: 35px;
+  color: #03045e;
+}
+
+.comment-page-intro {
+  padding-top: 10px;
+  margin-left: 22%;
+  margin-right: 22%;
+  text-align: center;
+  font-size: 17px;
+  color: #03045e;
+}
+
+.comment {
+  background-color: rgb(194, 243, 255);
+  color: #03045e;
+  text-shadow: 1px 1px 0px black;
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+}
+
+.bubble {
+ margin: 3%;
+}
+
+.full-comment-button {
+  background-color: #edfafd;
+  padding: 10px;
+  border-radius: 15px;
+  text-decoration: none;
+  color:#03045e;
+  font-size: 15px;
+}
+
+.full-comment-button:hover{
+  text-shadow: 0px 0px 5px #00b4d8;
+}
+.comments-div {
+  margin-bottom: 0 auto;
+  margin-top: 50px;
+  margin-right: 20%;
+  margin-left: 20%;
+}
+
+.delete-button{
+  font-size: 17px;
+  width: 30px;
+  height: 30px;
+  float: right;
+  border-radius: 50%;
+  border: none;
+  transition: .3s;
+  color: transparent;
+  background-color: transparent;
+  transition: .3s;
+}
+
+.delete-button:hover{
+  color:rgba(0, 0, 0, 0.644);
+  background-color: #ffffff;
+  box-shadow: 0px 0px 3px #000000;
+}
+
+/* edit comment */
+
+
+.edit-btn{
+  display: hidden;
+  width: 30px;
+  height: 30px;
+  float: left;
+  border-radius: 50%;
+  border: none;
+  color: transparent;
+  background-color: transparent;
+  transition: .3s;
+}
+.edit-btn:hover{
+  color:rgba(0, 0, 0, 0.644);
+  background-color: #ffffff;
+  box-shadow: 0px 0px 3px #183E4E;
+}
+
+.edit-comment-input{
+  background-color: rgb(194, 243, 255);
+  color: 03045e;
+  text-shadow: 1px 1px 0px #ffffff;
+  border-radius: 15px;
+  padding: 20px;
+  border: none;
+  width: 100%;
+  font-size: 20px;
+  padding: 20px;
+  margin: 10px;
+  transition: .4s;
+}
+
+.edit-comment-input:hover{
+  box-shadow: 0px 0px 10px #00B4D8;
+}
+
+.edit-comment {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.form-label {
+  font-size: 20px;
+  text-align: center;
+  padding-bottom: 10px;
+  color: #03045e;
+}
+
+.save-button {
+  color:#edfafd;
+  background-color: #0077b6;
+  border-radius: 50px;
+  border: none;
+  font-size: 20px;
+  margin-top: 10px;
+  align-self: center;
+  transition: .5s;
+  padding: 10px
+}
+.save-button:hover{
+  background-color:#edfafd;
+  color: #0077b6;
+  box-shadow: 0px 0px 5px #03045e;
+}
+
+.create-comment{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 30px;
+  color:#edfafd;
+  border-radius: 50px;
+  border: none;
+  font-size: 20px;
+  margin-top: 10px;
+  align-self: center;
+  transition: .5s;
+  padding-bottom: 70px;
+}
+
+.comment-input{
+  background-color: rgb(194, 243, 255);
+  color: 03045e;
+  text-shadow: 1px 1px 0px #ffffff;
+  border-radius: 15px;
+  padding: 20px;
+  border: none;
+  width: 500px;
+  font-size: 20px;
+  padding: 20px;
+  margin: 10px;
+  transition: .4s;
+}
+
+.comment-input:hover{
+  box-shadow: 0px 0px 10px #00B4D8;
+}
+
+.submit-button{
+  color:#edfafd;
+  background-color: #0077b6;
+  border-radius: 50px;
+  border: none;
+  font-size: 20px;
+  margin-top: 10px;
+  align-self: center;
+  transition: .5s;
+  padding: 10px
+}
+
+.submit-button:hover{
+  background-color:#edfafd;
+  color: #0077b6;
+  box-shadow: 0px 0px 5px #03045e;
+}
+
+.comment-label{
+  background-color: #0077b6;
+  padding: 15px;
+  border-radius: 20px;
+}
+
+.show-comment{
+  color: #0077b6;
+  text-align: center;
+  align-self: center;
+  justify-content: center;
+  margin-top: 200px;
+  background-color: #CAF0F8;
+  margin-left: 25%;
+  margin-right: 25%;
+  border-radius: 30px;
+  font-size: 25px;
+  padding: 15px;
+  font-weight: bolder;
+  letter-spacing: 10px;
+}
+
