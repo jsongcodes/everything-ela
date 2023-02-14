@@ -4,7 +4,7 @@ import CommentList from "./CommentList";
 import ShowComment from "./ShowComment";
 import PostList from "./PostList";
 
-const MainContainer = ({ postData, handleUpdateItem, student }) => {
+const MainContainer = ({ postData, student, handleUpdateItem }) => {
   const [clicked, setClicked] = useState(false);
 
   return (
