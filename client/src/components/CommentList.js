@@ -1,9 +1,128 @@
-const CommentList = () => {
-    return(
-      <>
-      CommentList component
-      </>
-    )
-  }
+import { useState, useEffect } from 'react';
+import CommentBubble from './CommentBubble';
+
+const CommentList = ({student}) => {
+    const [commentData, setCommentData] = useState([])
+    const [description, setDescription] = useState("")
+    const [dataIndex, setDataIndex] = useState(0)
+    const [showComment, setShowComment] = useState("")
+ 
+    useEffect(() => {
+        fetch("/comments")
+        .then((r) => r.json())
+        .then((comments) => { setCommentData(comments) });
+    }, []);
+
+    console.log(commentData)
+
+    function addNewComment(newComment){
+        setCommentData((prevState) => [...prevState, newComment])
+      }
+
+      function handleDeleteComment(commentToDelete){
+        const updatedComments = commentData.filter((comment) => {
+          if (comment.id !== commentToDelete.id) {
+            return comment
+          } else {
+            return null
+          }
+        });
+        setCommentData(updatedComments);
+      }
+
+      function handleUpdateComment(updatedCommentObj) {
+        const editedComments = commentData.map((comment) => {
+          if (comment.id === updatedCommentObj.id) {
+            return updatedCommentObj;
+          } else {
+            return comment;
+          }
+        });
+        setCommentData(editedComments);
+      }
+
+    function handleSubmit(e){
+        e.preventDefault();
+        const newCommentObj = {
+            description: description,
+            student_id: student.id,
+            positivity_post_id: 1
+        }
+              fetch("/comments",{
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newCommentObj)
+              })
+              .then(response => response.json())
+              .then((data) => addNewComment(data))  
+              setDescription("");     
+      }
+
+      function handleShowComment(singleComment){
+        setShowComment(singleComment)
+      }
+    
+      const commentList = [...commentData]
+      .slice(dataIndex, dataIndex + 3)
+      .map((comment) => 
+            <CommentBubble 
+              key={comment.id} 
+              id={comment.id}
+              comment={comment} 
+              handleDeleteComment={handleDeleteComment} 
+              handleUpdateComment={handleUpdateComment}
+              handleShowComment={handleShowComment}
+            />
+        ) 
+
+    function handleCommentChange(e){   
+    setDescription(e.target.value)
+    }
+
+    function handleClickMore() {
+        setDataIndex((dataIndex) => (dataIndex + 3) % commentData.length);
+      }
+
+    function handleClickLess() {
+      setDataIndex((dataIndex) => (dataIndex - 3) % commentData.length);
+    }
+
+  return (
+    <>
+    <div className="comment-page-title">
+      <p>Namaste</p>
+    </div>
+    <div className="comment-page-intro">
+      <p>Join others in sharing your experiences with your yoga practice on this platform.<br/>Whether yoga is something you have never tried before, or an important habit in your everyday life,<br/> take a moment to breathe and find your center with other yogis.</p>
+    </div>
+    <div className="comments-div">{commentList}</div>
+    <div className="float-container">
+          <div className="next-container">
+                <button 
+                className="back-button" 
+                onClick={handleClickLess}><i class="gg-chevron-left"></i></button>
+          </div>
+          <div className="next-container">
+              <button 
+                className="next-button" 
+                onClick={handleClickMore}><i class="gg-chevron-right"></i></button>
+            </div>
+        </div>
+    <form className="create-comment" onSubmit={handleSubmit} >
+      <label className="comment-label" htmlFor="comment">New Comment: </label>
+      <input 
+        className="comment-input"
+        name="comment"
+        type="text"
+        placeholder="Enter a comment..."
+        value={description}
+        onChange={handleCommentChange}
+        ></input>
+        <input className="submit-button" type="submit" value="Post" />
+    </form>
+
+    </>
+  )
+}
   
   export default CommentList;
