@@ -1,25 +1,44 @@
-import {useState} from 'react';
-import PostItem from './PostItem';
+import { useState } from "react";
+import PostItem from "./PostItem";
 
-const PostList = ({postData, clicked, setClicked, handleUpdateItem}) => {
+const PostList = ({
+  postData,
+  clicked,
+  setClicked,
+  handleUpdateItem,
+  handleFindId,
+}) => {
 
-    // const [dataIndex, setDataIndex] = useState(0);
+  const postItems = postData.map((post) => (
+    <PostItem
+      key={post.id}
+      post={post}
+      handleUpdateItem={handleUpdateItem}
+      clicked={clicked}
+      setClicked={setClicked}
+      handleFindId={handleFindId}
+    />
+  ));
 
-    const postItems = [...postData].map((post) => {
-        <PostItem
-        key={post.id}
-        post={post}
-        handleUpdateItem={handleUpdateItem}
-        clicked={clicked}
-        setClicked={setClicked}
-        />
-    })
-    
-    return(
-      <>
-      {postItems}
-      </>
-    )
-  }
-  
-  export default PostList;
+  return (
+    <>
+      {/* <div className="comment-page-title">
+        <p>Learn. Transform. Breathe.</p>
+      </div>
+      <div className="comment-page-intro">
+        <p>
+          Our deepest passion is to help yogis grow their post practice.
+          <br />
+          Explore strengthening and stretching poses with instructional videos
+          to help guide you on your journey.
+        </p>
+      </div> */}
+      <div className="post-list">
+        <div className="post-container">{postItems}</div>
+
+      </div>
+    </>
+  );
+};
+
+export default PostList;
