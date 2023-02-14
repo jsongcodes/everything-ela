@@ -46,9 +46,9 @@ const LoginForm = ({ onLogin }) => {
         />
       </FormField>
       
-        <Button variant="fill" color="primary" type="submit">
-          Login
-        </Button>
+        <button type="submit">
+          login
+        </button>
       
       <FormField>
         {errors.map((err) => (
