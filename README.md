@@ -1,24 +1,59 @@
-# README
+# Everything ELA
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Everything ELA is a virtual space where students can read, comment, and post about ELA topics.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+In a terminal, type the following:
 
-* System dependencies
+```
+git clone git@github.com:jsongcodes/everything-ela.git
+```
 
-* Configuration
+## Migration and Seed
 
-* Database creation
+```
+bundle exec rake db:migrate db:seed
 
-* Database initialization
+```
 
-* How to run the test suite
+## Backend Server
+Type in the terminal:
+```
+rails s
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Frontend Server
 
-* Deployment instructions
+for the frontend, type:
+```
+cd client
+npm install
+npm start
+```
+## Relationships within Database
 
-* ...
+### Models
+
+#### Comment
+belongs to student
+
+belongs to post
+
+#### Post
+has many comments
+
+has many students, through comments
+
+#### Student
+has many comments
+
+has many posts, through comments
+
+## Usage
+
+Students are able to register, login, create posts, and leave comments. Comments are able to be created, read, updated, and deleted. 
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
