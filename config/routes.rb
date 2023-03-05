@@ -6,11 +6,14 @@ Rails.application.routes.draw do
 
   resources :comments
   resources :posts, only: [:index, :show, :create]
+
   post "/signup", to: "students#create"
   get "/me", to: "students#show"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
+  
 
+  get '/posts/:id/comments', to: 'posts#comments'
 
 
   get '*path',
