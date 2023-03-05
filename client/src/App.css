@@ -1,47 +1,59 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Outline&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Yantramanav&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Playfair+Display&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-
-*{
   /* font-family: 'Patrick Hand SC', cursive; */
   /* font-family: 'Yantramanav', sans-serif; */
-  font-family: 'Varela Round', sans-serif;
+  /* font-family: 'Bebas Neue', cursive;*/
 
-  font-size: 25px;
-  /* background-color: #FCFFD1; */
+.main-container{
+  background-image: url("https://images.unsplash.com/photo-1618707588897-f39b1d11556e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
 }
 
-.header {
-  font-family: 'Bungee Outline', cursive;
-font-style: italic;
-  color: white;
-  text-shadow: 1px 1px 10px #FF8E8E;
-  font-size: 100px;
-  margin: 8px 0 16px;
+.header-div {
+  margin: 0px 0px 20px 0px;
   text-align: center;
   background-color: #FCFFD1;
   padding: 50px;
+  
  }
- .header-background{
-   height: 150px;
-   background-color: #C0EEE4;
-   margin: 0 auto;
+ .header-blurb{
+  font-family: 'Bungee Outline', cursive;
+  font-style: italic;
+    color: white;
+    text-shadow: 1px 1px 10px #FF8E8E;
+    font-size: 100px;
+  margin: 8px 10px 0 10px;
+  text-align: center;
+  background-color: #FCFFD1;
+
+ }
+ .header-message{
+  font-family: 'Bebas Neue', cursive;
+  font-size: 25px;
+  font-style: italic;
+    color: #DBC8AC;
+  margin: 8px 10px 0px 10px;
+  text-align: center;
+  background-color: #FCFFD1;
+
+ }
+ .navbar-background{
+  font-family: 'Bebas Neue', cursive;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  background-color: #FCFFD1;
+  margin: 0px 0 20px 0px;
+  padding: 20px;
  }
 
  .nav-button{
   text-align: center;
-  background-color: #caf0f8;
   font-weight: bold;
   border-radius: 15px;
-  color: #0096C7;
-  box-shadow: 2px 2px #03045e;
-  text-shadow: 2px 2px #ffffff;
-  font-size: 25px;
   float: right;
   margin-right: 10px;
   margin-left: 10px;
@@ -49,67 +61,53 @@ font-style: italic;
   padding-bottom: 0 auto;
   text-decoration: none;
   transition: all .2s ease-in-out;
-
+  cursor: pointer;
+  font-size: 20px;
+  font-family: 'Patrick Hand SC', cursive;
+  border: 1px solid transparent;
+  background-color: #FFCAC8;
+  color: #FF9E9E;
 }
+
 .nav-button:hover{
-  box-shadow: 5px 5px #03045e;
-}
-
-.logout-button{
-  text-align: center;
-  background-color: #FFDCA9;
-  font-weight: bold;
-  border-radius: 15px;
-  color: #ffffff;
-  box-shadow: 2px 2px #ffffff;
-  text-shadow: 1px 1px #737ab9;
-  font-size: 25px;
-  float: right;
-  margin-right: 10px;
-  margin-left: 10px;
-  padding: 10px;
-  padding-bottom: 0 auto;
-  text-decoration: none;
-  border: none;
-  transition: all .2s ease-in-out;
-}
-.logout-button:hover{
-  box-shadow: 5px 5px #ffffff;
+  transform: scale(1.1);
+  box-shadow: 0px 0px 9px #FF9E9E;
 }
 
 .welcome{
-  /* font-family: 'Bungee Outline', cursive; */
-  color: #ffffff;
-  text-shadow: 2px 2px #03045e;
-  font-size: 40px;
   text-align: left;
   padding-top: 10px;
   margin: 0 auto;
-  margin-left: 50px;
+  margin-left: 50px; 
+  color: white;
+  display: block;
+  font-size: 40px;
+  text-shadow: 1px 1px 10px #87805E;
 }
 
 .post-list{
-  /* margin-top: 60px;
+  margin-top: 60px;
   text-align: center;
   display: block;
   align-items: center;
-  margin: auto; */
+  margin: auto;
   padding: 10px;
+  font-family: 'Patrick Hand SC', cursive;
+  font-size: 20px;
+  opacity: 0.7;
 }
 
 /* post cards */
 
 .post-card-title {
-color: #03045E;
+color: #FF9E9E;
+font-size: 40px;
 }
 
 .post-card-category {
   color: #03045E;
 }
 
-.post-card-description {
-  color: #03045E;
-}
 .postimage {
   width: 70%;
   border-radius: 20px;
@@ -118,7 +116,7 @@ color: #03045E;
 
 .post-container{
   display: grid;
-  margin: 0 auto;
+  margin: 20px auto;
   max-height: 25rem;
   grid-template-columns: auto auto auto;
   gap: 9% 5%;
@@ -131,7 +129,7 @@ color: #03045E;
 .post-item{
   display: flex;
   flex-direction: column;
-  background-color: #caf0f8;  
+  background-color: white;  
   align-content: center;
   height: 100%;
   width: 100%;
@@ -139,14 +137,11 @@ color: #03045E;
   align-items: center;
   margin: 0 auto;
   text-align: center;
-  padding: 5%;
+  padding: 2%;
   border-radius: 25px;
-  box-shadow: 5px 5px #48cae4;
   transition: .7s;
 }
-.post-item:hover{
-  box-shadow: 5px 5px #03045e;
-}
+
 
 .like-button{
   border: none;
@@ -167,7 +162,7 @@ color: #03045E;
   box-shadow: 0px 0px 2px #ffffff;
 }
 
-button {
+/* button {
   background: #F9E6F2;
   color: #434142;
   border: 1;
@@ -178,7 +173,7 @@ button {
   cursor: pointer;
   margin: 20px;
   font-family: 'Montserrat Alternates', sans-serif;
-} 
+}  */
 
 .comment-page-title {
   padding-top: 150px;
@@ -197,12 +192,24 @@ button {
 }
 
 .comment {
-  background-color: rgb(194, 243, 255);
+  /* background-color: rgb(194, 243, 255);
   color: #03045e;
   text-shadow: 1px 1px 0px black;
   border-radius: 15px;
   padding: 15px;
+  text-align: center; */
+
+  background-color: white;  
+  align-content: center;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
   text-align: center;
+  padding: 2%;
+  border-radius: 25px;
+  transition: .7s;
 }
 
 .bubble {
@@ -226,19 +233,25 @@ button {
   margin-top: 50px;
   margin-right: 20%;
   margin-left: 20%;
+  font-family: 'Patrick Hand SC', cursive;
+  font-size: 25px;
+  color: #FF9E9E;
+opacity: 0.7;
+
 }
 
+
 .delete-button{
-  font-size: 17px;
-  width: 30px;
-  height: 30px;
-  float: right;
-  border-radius: 50%;
+  border-radius: 20px;
   border: none;
-  transition: .3s;
-  color: transparent;
-  background-color: transparent;
-  transition: .3s;
+  font-size: 20px;
+  margin-top: 10px;
+  align-self: center;
+  font-family: 'Patrick Hand SC', cursive;
+  padding: 10px;
+  opacity: 0.8;
+  float: right;
+  transition: .5s;
 }
 
 .delete-button:hover{
@@ -251,15 +264,16 @@ button {
 
 
 .edit-btn{
-  display: hidden;
-  width: 30px;
-  height: 30px;
-  float: left;
-  border-radius: 50%;
+  border-radius: 20px;
   border: none;
-  color: transparent;
-  background-color: transparent;
-  transition: .3s;
+  font-size: 20px;
+  margin-top: 10px;
+  align-self: center;
+  transition: .5s;
+  padding: 10px;
+  font-family: 'Patrick Hand SC', cursive;
+  font-size: 20px;
+  opacity: 0.8;
 }
 .edit-btn:hover{
   color:rgba(0, 0, 0, 0.644);
@@ -268,21 +282,23 @@ button {
 }
 
 .edit-comment-input{
-  background-color: rgb(194, 243, 255);
-  color: 03045e;
+  background-color: white;
+  /* color: #03045e; */
   text-shadow: 1px 1px 0px #ffffff;
   border-radius: 15px;
   padding: 20px;
   border: none;
-  width: 100%;
+  width: 500px;
   font-size: 20px;
   padding: 20px;
   margin: 10px;
   transition: .4s;
+  font-family: 'Patrick Hand SC', cursive;
+  font-size: 20px;
 }
 
 .edit-comment-input:hover{
-  box-shadow: 0px 0px 10px #00B4D8;
+  box-shadow: 0px 0px 10px #89aeb5;
 }
 
 .edit-comment {
@@ -295,30 +311,32 @@ button {
   font-size: 20px;
   text-align: center;
   padding-bottom: 10px;
-  color: #03045e;
+  color: white;
 }
 
 .save-button {
-  color:#edfafd;
-  background-color: #0077b6;
-  border-radius: 50px;
+  background-color: #FFCAC8;
+  color: #FF9E9E;
+  padding: 15px;
+  border-radius: 20px;
   border: none;
   font-size: 20px;
   margin-top: 10px;
   align-self: center;
   transition: .5s;
-  padding: 10px
+  padding: 10px;
+  font-family: 'Patrick Hand SC', cursive;
+  font-size: 20px;
 }
 .save-button:hover{
-  background-color:#edfafd;
-  color: #0077b6;
-  box-shadow: 0px 0px 5px #03045e;
+  transform: scale(1.3);
+  box-shadow: 0px 0px 9px #FF9E9E;
 }
 
 .create-comment{
-  align-items: center;
+  /* align-items: center;*/
   justify-content: center;
-  text-align: center;
+  text-align: center; 
   margin-top: 30px;
   color:#edfafd;
   border-radius: 50px;
@@ -328,11 +346,13 @@ button {
   align-self: center;
   transition: .5s;
   padding-bottom: 70px;
+  font-family: 'Patrick Hand SC', cursive;
+  font-size: 20px;
 }
 
 .comment-input{
-  background-color: rgb(194, 243, 255);
-  color: 03045e;
+  background-color: white;
+  /* color: #03045e; */
   text-shadow: 1px 1px 0px #ffffff;
   border-radius: 15px;
   padding: 20px;
@@ -342,32 +362,38 @@ button {
   padding: 20px;
   margin: 10px;
   transition: .4s;
+  font-family: 'Patrick Hand SC', cursive;
+  font-size: 20px;
+  
 }
 
 .comment-input:hover{
-  box-shadow: 0px 0px 10px #00B4D8;
+  box-shadow: 0px 0px 10px #89aeb5;
 }
 
 .submit-button{
-  color:#edfafd;
-  background-color: #0077b6;
-  border-radius: 50px;
+  background-color: #FFCAC8;
+  color: #FF9E9E;
+  padding: 15px;
+  border-radius: 20px;
   border: none;
   font-size: 20px;
   margin-top: 10px;
   align-self: center;
   transition: .5s;
-  padding: 10px
+  padding: 10px;
+  font-family: 'Patrick Hand SC', cursive;
+  font-size: 20px;
 }
 
 .submit-button:hover{
-  background-color:#edfafd;
-  color: #0077b6;
-  box-shadow: 0px 0px 5px #03045e;
+  transform: scale(1.3);
+  box-shadow: 0px 0px 9px #FF9E9E;
 }
 
 .comment-label{
-  background-color: #0077b6;
+  background-color: #FFCAC8;
+  color: #FF9E9E;
   padding: 15px;
   border-radius: 20px;
 }
@@ -388,3 +414,162 @@ button {
   letter-spacing: 10px;
 }
 
+.accountquestion {
+  color: white;
+  text-align: center;
+
+}
+
+.next-container{
+  width: 50%;
+  float: left;
+  padding: 60px 30px 30px 30px;
+  opacity: 0.7;
+}
+
+.back-button{
+  padding: 10px;
+  justify-content: center;
+  align-self: center;
+  float: right;
+  margin-left: 50%;
+  margin-right: 50%;
+  margin-top: 3%;
+  margin-bottom: 5%;
+  border: none;
+  background-color: white;
+  color: #FF9E9E;
+  font-weight: bold;
+  border-radius: 15px;
+  font-size: 30px;
+  transition: all .2s ease-in-out; 
+}
+
+.back-button:hover {
+  transform: scale(1.3);
+  box-shadow: 0px 0px 9px #FF9E9E;
+}
+
+.next-button{
+padding: 10px;
+  /* justify-content: center;
+  align-self: center; */
+  margin-left: 50%;
+  margin-right: 50%;
+  margin-top: 3%;
+  margin-bottom: 5%;
+border: none;
+background-color: white;
+color: #FF9E9E;
+font-weight: bold;
+border-radius: 15px;
+font-size: 30px;
+transition: all .2s ease-in-out;
+}
+
+.next-button:hover {
+  transform: scale(1.3);
+  box-shadow: 0px 0px 9px #FF9E9E;
+}
+
+.back-container{
+  width: 50%;
+  float: left;
+  padding: 60px 30px 30px 30px;
+  opacity: 0.7;
+  
+}
+
+.float-container{
+  border: 3px solid #fff;
+  padding: 20px;
+  margin-top: 100px;
+}
+
+
+.gg-chevron-left {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs,1));
+  color: pink;
+  background-color: white;
+  width: 22px;
+  height: 22px;
+  border: 2px solid transparent;
+  border-radius: 100px;
+ }
+ 
+ .gg-chevron-left::after {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid;
+  border-left: 2px solid;
+  transform: rotate(45deg);
+  left: 6px;
+  top: 4px
+ } 
+
+
+ .gg-chevron-right {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs,1));
+  transition: all .2s ease-in-out;
+  width: 22px;
+  height: 22px;
+  border: 2px solid transparent;
+  border-radius: 100px;
+  opacity: 0.7;
+
+ }
+ 
+ .gg-chevron-right::after {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+  transform: rotate(-45deg);
+  right: 6px;
+  top: 4px
+ } 
+
+
+
+.literally-back-button{
+  justify-content: left;
+  align-self: left;
+  float: left;
+  margin-left: 5%;
+  margin-right: 50%;
+  margin-top: 0%;
+  margin-bottom: 5%;
+  padding: 7px;
+  border: none;
+  background-color: #FFCAC8;
+  color: black;
+  font-weight: bold;
+  border-radius: 15px;
+  font-size: 30px;
+  text-decoration: none;
+  transition: all .2s ease-in-out;
+}
+
+
+
+.tagline {
+  color: black;
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 200;
+}
