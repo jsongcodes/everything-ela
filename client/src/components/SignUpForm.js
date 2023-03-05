@@ -1,34 +1,34 @@
 import {useState} from 'react';
-import { Error, Input, FormField, Label } from "./styles";
+import { Button, Error, Input, FormField, Label } from "./styles";
 
 const SignUpForm = ({onLogin}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        setErrors([]);
-        fetch("/signup", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            username,
-            password
-          }),
-        }).then((r) => {
-          if (r.ok) {
-            r.json().then((user) => onLogin(user));
-          } else {
-            r.json().then((err) => setErrors(err.errors));
-          }
-        });
-      }
+    function handleSignup(e) {
+      e.preventDefault();
+      setErrors([]);
+      fetch("/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username,
+          password
+        }),
+      }).then((res) => {
+        if (res.ok) {
+          res.json().then((student) => onLogin(student));
+        } else {
+          res.json().then((error) => setErrors(error.errors));
+        }
+      });
+    }
 
-    return(
-        <form onSubmit={handleSubmit}>
+    return (
+      <form onSubmit={handleSignup}>
         <FormField>
           <Label htmlFor="username">Username</Label>
           <Input
@@ -50,7 +50,7 @@ const SignUpForm = ({onLogin}) => {
           />
         </FormField>
         <FormField>
-          <button type="submit">sign up</button>
+        <Button type="submit">Sign Up</Button>
         </FormField>
         <FormField>
           {errors.map((err) => (
@@ -58,7 +58,7 @@ const SignUpForm = ({onLogin}) => {
           ))}
         </FormField>
       </form>
-    )
+    );
   }
   
   export default SignUpForm;
