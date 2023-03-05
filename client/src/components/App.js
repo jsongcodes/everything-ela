@@ -2,43 +2,36 @@ import { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import "../App.css";
 import Login from "./Login";
-import MainContainer from "./MainContainer";
 import Header from "./Header";
+import Posts from "./Posts";
+import Post from "./Post";
+import Me from "./Me";
+import CreatePost from "./CreatePost";
 
 const App = () => {
   const [student, setStudent] = useState(null);
-  const [postData, setPostData] = useState([]);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    fetch("/me").then((response) => {
-      if (response.ok) {
-        response.json().then((student) => setStudent(student));
+    fetch("/me").then((res) => {
+      if (res.ok) {
+        res.json().then((student) => {
+          setIsAuthenticated(true);
+          setStudent({
+            id: student.id,
+            username: student.username,
+          });
+        });
       }
     });
   }, []);
-
-  useEffect(() => {
-    fetch("/posts")
-      .then((r) => r.json())
-      .then((post) => setPostData(post));
-  }, []);
-
-  function handleUpdateItem(updatedItemObj) {
-    const editedItems = postData.map((item) => {
-      if (item.id === updatedItemObj.id) {
-        return updatedItemObj;
-      } else {
-        return item;
-      }
-    });
-    setPostData(editedItems);
-  }
 
   const handleLogout = () => {
     setStudent(null);
   };
 
   if (!student) return <Login onLogin={setStudent} />;
+
   return (
     <div className="App">
       <Header
@@ -47,12 +40,17 @@ const App = () => {
         onLogout={handleLogout}
       />
       <Switch>
-        <Route exact path="/posts">
-          <MainContainer
-            postData={postData}
-            student={student}
-            handleUpdateItem={handleUpdateItem} 
-          />
+        <Route exact path="/">
+          <Posts />
+        </Route>
+        {/* <Route exact path="/me">
+          <Me student={student}/>
+        </Route> */}
+        <Route exact path="/newpost">
+        <CreatePost studentId={studentId} addNewPost={addNewPost} />
+        </Route>
+        <Route exact path="/posts/:id">
+          <Post student={student} />
         </Route>
       </Switch>
     </div>
