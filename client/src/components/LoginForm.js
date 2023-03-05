@@ -5,17 +5,14 @@ const LoginForm = ({ onLogin }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
-//   const [isLoading, setIsLoading] = useState(false);
 
-  function handleSubmit(e) {
+  function handleLogin(e) {
     e.preventDefault();
-    // setIsLoading(true);
     fetch("/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password }),
     }).then((r) => {
-    //   setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => onLogin(user));
       } else {
@@ -25,9 +22,9 @@ const LoginForm = ({ onLogin }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleLogin}>
       <FormField>
-      <Label htmlFor="username">Username</Label>
+      <Label htmlFor="username">username</Label>
         <Input
           type="text"
           id="username"
@@ -36,7 +33,7 @@ const LoginForm = ({ onLogin }) => {
           onChange={(e) => setUsername(e.target.value)}/>
       </FormField>
       <FormField>
-        <Label htmlFor="password">Password</Label>
+        <Label htmlFor="password">password</Label>
         <Input
           type="password"
           id="password"
@@ -46,9 +43,9 @@ const LoginForm = ({ onLogin }) => {
         />
       </FormField>
       
-        <button type="submit">
+      <Button variant="fill" color="primary" type="submit">
           login
-        </button>
+        </Button>
       
       <FormField>
         {errors.map((err) => (
