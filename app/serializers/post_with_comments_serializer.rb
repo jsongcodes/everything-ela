@@ -1,5 +1,5 @@
-class PostWithCommentsSerializer < ActiveModel::Serializer
-  attributes :id, :title, :body
+# class PostWithCommentsSerializer < ActiveModel::Serializer
+#   attributes :id, :title, :body
 
-  has_many :comments
-end
+#   has_many :comments
+# end
