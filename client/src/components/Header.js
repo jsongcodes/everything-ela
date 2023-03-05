@@ -1,12 +1,17 @@
 import Navbar from "./Navbar";
 
-const Header = ({student, setStudent, onLogout}) => {
-    return(
-      <div className="header-background">
-      <h1 className="header">Positive Place</h1>
-      <Navbar student={student} setStudent={setStudent} onLogout={onLogout}/>
+const Header = ({ student, setStudent, onLogout }) => {
+  return (
+    <>
+      <div className="header-div">
+        <h1 className="header-blurb">EVERYTHING ELA</h1>
+        <h2 className="header-message">
+          a virtual space to spread ELA knowledge
+        </h2>
       </div>
-    )
-  }
-  
-  export default Header;
+      <Navbar student={student} setStudent={setStudent} onLogout={onLogout} />
+    </>
+  );
+};
+
+export default Header;

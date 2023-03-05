@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Navbar = ({ student, setStudent }) => {
+const Navbar = ( {student, setStudent, onLogout }) => {
   const handleLogoutClick = () => {
     fetch("/logout", {
       method: "DELETE",
@@ -8,22 +8,20 @@ const Navbar = ({ student, setStudent }) => {
       if (r.ok) {
         setStudent(null);
       }
-    });
+    }).then(<redirect to="/" />);
   };
 
   return (
-    <div className="header-background">
-      <div>
-        <p className="welcome">welcome, {student.username}!</p>
-        <button onClick={handleLogoutClick} className="logout-button">
-          logout
-        </button>
-      </div>
-      <Link to="/comments" className="nav-button">
-        comments
+    <div className="navbar-background">
+      <p className="welcome">welcome, {student.username}!</p>
+      <button onClick={handleLogoutClick} className="nav-button">
+        logout
+      </button>
+      <Link to="/me" className="nav-button">
+        account
       </Link>
-      <Link to="/posts" className="nav-button">
-        home
+      <Link to="/" className="nav-button">
+        posts
       </Link>
     </div>
   );
