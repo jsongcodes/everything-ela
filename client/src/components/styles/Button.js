@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const COLORS = {
   primary: {
-    "--main": "deepskyblue",
+    "--main": "blue",
     "--accent": "white",
   },
   secondary: {
@@ -24,21 +24,27 @@ function Button({ variant = "fill", color = "primary", ...props }) {
 
 const ButtonBase = styled.button`
   cursor: pointer;
-  font-size: 25px;
+  font-size: 20px;
+
+  font-family: 'Patrick Hand SC', cursive;
+
   border: 1px solid transparent;
   border-radius: 20px;
   padding: 8px 14px;
-  margin-left: 40%;
+  margin-left: 43%;
   margin-right: 40%;
   margin-bottom: 10%;
   text-decoration: none;
+  
+  
 `;
 
 const FillButton = styled(ButtonBase)`
   background-color: #FFCAC8;
   color: #FF9E9E;
   &:hover {
-    opacity: 0.8;
+    transform: scale(1.1);
+    box-shadow: 0px 0px 9px #FF9E9E;
   }
 `;
 
