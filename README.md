@@ -1,6 +1,6 @@
 # Everything ELA
 
-Everything ELA is a virtual space where students can read, comment, and post about ELA topics.
+Everything ELA is a virtual space where students can read, comment, and post about English Language Arts (ELA) topics.
 
 ## Installation
 
