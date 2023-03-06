@@ -1,41 +1,52 @@
 import { useState } from "react";
 
-const CommentForm = ({postId, updateComments, student}) => {
-  const [body, setBody] = useState("");
+const CommentForm = ({ studentId, postId, updateComments }) => {
+  const [commentBody, setCommentBody] = useState("");
+  const [errors, setErrors] = useState([]);
 
-  function handleSubmit(e) {
+  const handleCommentChange = (e) => {
+    setCommentBody(e.target.value);
+  }
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const newCommentObj = {
-      body: body,
-      student_id: student.id,
+    const newComment = {
+      body: commentBody,
+      student_id: studentId,
       post_id: parseInt(postId)
-    };
+    }
     fetch("/comments", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newCommentObj),
+      body: JSON.stringify(newComment),
     })
-      .then((response) => response.json())
-      .then((data) => updateComments(data));
-    setBody("");
-  }
-
-  function handleCommentChange(e) {
-    setBody(e.target.value);
+    .then(res => {
+      if (!res.ok){
+          res.json().then((err) =>{
+          setErrors(err.errors)
+          alert(err.errors)
+      })
+      }else{
+          res.json().then((data) => updateComments(data))
+          setCommentBody("")
+      }
+  })
   }
 
   return (
-    <form className="create-comment" onSubmit={(e) => handleSubmit(e)}>
-      <input
-        className="comment-input"
-        name="comment"
-        type="text"
-        placeholder="Enter a comment..."
-        value={body}
-        onChange={handleCommentChange}
-      ></input>
-      <input className="submit-button" type="submit" value="Post" />
-    </form>
+    <>
+      <form className="create-comment" onSubmit={handleSubmit}>
+        <input
+          className="comment-input"
+          name="comment"
+          type="text"
+          placeholder="Enter a comment..."
+          value={commentBody}
+          onChange={handleCommentChange}
+        ></input>
+        <input className="submit-button" type="submit" value="Post" />
+      </form>
+    </>
   );
 };
 

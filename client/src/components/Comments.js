@@ -1,20 +1,19 @@
 import { useState, useEffect } from "react";
-import Comment from "./Comment";
+import CommentEdit from "./CommentEdit";
 import { useParams } from "react-router-dom";
 import CommentForm from "./CommentForm";
 
-const Comments = ({ student }) => {
+const Comments = ({ student, studentId, comments, setComments }) => {
   const params = useParams();
-  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     fetch(`/posts/${params.id}/comments`)
       .then((r) => r.json())
-      .then(setComments);
+      .then(setComments)
   }, [params.id]);
 
   const updateComments = (data) => {
-    setComments([data, ...comments]);
+    setComments((comments) => [data, ...comments]);
   };
 
   const handleUpdateComment = (id, body) => {
@@ -56,16 +55,16 @@ const Comments = ({ student }) => {
     });
   };
 
-  const commentList = comments.map((comment) => (
-    <Comment
+  const commentList = [...comments].map((comment) => {
+    return (
+    <CommentEdit
       key={comment.id}
-      id={comment.id}
       comment={comment}
       handleDeleteComment={handleDeleteComment}
       handleUpdateComment={handleUpdateComment}
       student={student}
     />
-  ));
+  )});
 
   return (
     <>
@@ -73,7 +72,7 @@ const Comments = ({ student }) => {
       <CommentForm
         postId={params.id}
         updateComments={updateComments}
-        student={student}
+        studentId={studentId}
       />
     </>
   );

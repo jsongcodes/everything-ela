@@ -5,12 +5,18 @@ import Login from "./Login";
 import Header from "./Header";
 import Posts from "./Posts";
 import Post from "./Post";
-import Me from "./Me";
-import CreatePost from "./CreatePost";
+import PostForm from "./PostForm";
 
 const App = () => {
   const [student, setStudent] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [posts, setPosts] = useState([]);
+  const [comments, setComments] = useState([]);
+  const [studentId, setStudentId] = useState(null);
+
+  const addNewPost = (newPost) => {
+    setPosts((posts) => [newPost, ...posts]);
+  };
 
   useEffect(() => {
     fetch("/me").then((res) => {
@@ -21,6 +27,7 @@ const App = () => {
             id: student.id,
             username: student.username,
           });
+          setStudentId(student.id);
         });
       }
     });
@@ -41,16 +48,13 @@ const App = () => {
       />
       <Switch>
         <Route exact path="/">
-          <Posts />
+          <Posts posts={posts} setPosts={setPosts}/>
         </Route>
-        {/* <Route exact path="/me">
-          <Me student={student}/>
-        </Route> */}
         <Route exact path="/newpost">
-        <CreatePost studentId={studentId} addNewPost={addNewPost} />
+          <PostForm studentId={studentId} addNewPost={addNewPost} posts={posts}/>
         </Route>
         <Route exact path="/posts/:id">
-          <Post student={student} />
+          <Post studentId={studentId} student={student} comments={comments} setComments={setComments} />
         </Route>
       </Switch>
     </div>
