@@ -12,9 +12,7 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   
-
   get '/posts/:id/comments', to: 'posts#comments'
-
 
   get '*path',
       to: 'fallback#index',
