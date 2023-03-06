@@ -1,13 +1,13 @@
 class PostsController < ApplicationController
-    # skip_before_action :authorize, only: :index
+    skip_before_action :authorize, only: :index
     
     def index
-        # posts = Post.all
-        render json: Post.all, status: :ok
+        posts = Post.all
+        render json: posts, status: :ok
     end
 
     def show
-        post = Post.find(params[:id])
+        post = find_post
         render json: post, status: :ok
     end
 
@@ -18,7 +18,6 @@ class PostsController < ApplicationController
 
     def create
         post = Post.create!(post_params)
-        # post = @current_user.posts.create!(post_params)
         render json: post, status: :created
     end
 

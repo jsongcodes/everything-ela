@@ -1,10 +1,11 @@
 class CommentsController < ApplicationController
 
-    skip_before_action :authorize, only: [:index, :show, :create]
+    # skip_before_action :authorize, only: [:index, :show, :create]
+
 
     def index
-        # comments = Comment.all
-        render json: Comment.all, status: :ok
+        comments = Comment.all
+        render json: comments, status: :ok
     end
 
     def show
@@ -12,11 +13,16 @@ class CommentsController < ApplicationController
         render json: comment, status: :ok
     end
 
+    # def create
+    #    comment = Comment.create!(comment_params)
+    #     # comment = @current_user.comments.create!(comment_params)
+    #     render json: comment, status: :created
+    # end
+
     def create
-       comment = Comment.create!(comment_params)
-        # comment = @current_user.comments.create!(comment_params)
+        comment = Comment.create!(comment_params)
         render json: comment, status: :created
-    end
+     end
 
     def update
         # comment = find_comment
@@ -26,7 +32,7 @@ class CommentsController < ApplicationController
         # else
         #     render json: { error: "Not authorized" }, status: :unauthorized
         # end
-        comment = Comment.find_by(id: params[:id])
+        comment = find_comment
         comment.update!(comment_params)
         render json: comment, status: :accepted
     end
@@ -36,16 +42,16 @@ class CommentsController < ApplicationController
         # if @current_user == comment.student
         #     comment.destroy
         # end
-        comment = Comment.find_by(id: params[:id])
+        comment = find_comment
         comment.destroy
         head :no_content
     end
 
     private
 
-    # def find_comment
-    #     Comment.find(params[:id])
-    # end
+    def find_comment
+        Comment.find(params[:id])
+    end
 
     def comment_params
         params.permit(:body, :post_id, :student_id)
