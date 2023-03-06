@@ -1,6 +1,6 @@
 # Everything ELA
 
-Everything ELA is a virtual space where students can read, comment, and post about English Language Arts (ELA) topics.
+Everything ELA is a virtual space where students can read, comment, and post about English Language Arts (ELA) topics. To make this full-stack web app, I used ReactJS for the frontend and Rails for the backend. 
 
 ## Installation
 
