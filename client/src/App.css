@@ -94,14 +94,22 @@
   padding: 10px;
   font-family: 'Patrick Hand SC', cursive;
   font-size: 20px;
-  opacity: 0.7;
 }
 
 /* post cards */
 
 .post-card-title {
-color: #FF9E9E;
 font-size: 40px;
+text-decoration: none;
+font-family: 'Bebas Neue', cursive;
+color: white;
+display: block;
+/* align-items: top; */
+font-size: 40px;
+text-shadow: 1px 1px 10px #87805E;
+        flex-direction: column;
+        padding-bottom: 2rem;
+
 }
 
 .post-card-category {
@@ -117,13 +125,12 @@ font-size: 40px;
 .post-container{
   display: grid;
   margin: 20px auto;
-  max-height: 25rem;
+  max-height: 100rem;
   grid-template-columns: auto auto auto;
-  gap: 9% 5%;
+  gap: 9% 1%;
   padding-right: 2%;
   padding-left: 2%;
   padding-bottom: 2%;
-  min-width: 1rem;
 }
 
 .post-item{
@@ -131,15 +138,21 @@ font-size: 40px;
   flex-direction: column;
   background-color: white;  
   align-content: center;
-  height: 100%;
-  width: 100%;
+  height: 35rem;
+  width: 17rem;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  margin: 0;
   text-align: center;
   padding: 2%;
   border-radius: 25px;
   transition: .7s;
+
+  
+  font-family: 'Patrick Hand SC', cursive;
+  font-size: 25px;
+  color: #FF9E9E;
+opacity: 0.8;
 }
 
 
@@ -423,8 +436,12 @@ opacity: 0.7;
 .next-container{
   width: 50%;
   float: left;
-  padding: 60px 30px 30px 30px;
+  padding: 30px 30px 30px 30px;
   opacity: 0.7;
+  margin: 20px 0px 0px 0px;
+  text-align: center;
+  background-color: #FCFFD1;
+  padding: 5px;
 }
 
 .back-button{
@@ -572,4 +589,67 @@ transition: all .2s ease-in-out;
   text-align: center;
   font-size: 25px;
   font-weight: 200;
+}
+
+.new-post-card{
+  display: flex;
+  flex-direction: column;
+  background-color: white;  
+  align-content: center;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2%;
+  border-radius: 25px;
+  transition: .7s;
+}
+
+.single-post-item{
+  display: flex;
+  flex-direction: column;
+  background-color: white;  
+  align-content: center;
+
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  text-align: center;
+  padding: 2%;
+  border-radius: 25px;
+  transition: .7s;
+
+  
+  font-family: 'Patrick Hand SC', cursive;
+  font-size: 25px;
+  color: #FF9E9E;
+opacity: 0.8;
+
+display: flex;
+flex-direction: column;
+background-color: white;  
+align-content: center;
+height: 50%;
+width: 50%;
+justify-content: center;
+align-items: center;
+margin: 0 auto;
+text-align: center;
+padding: 2%;
+border-radius: 25px;
+transition: .7s;
+}
+
+.new-post-list{
+  margin-top: 60px;
+  text-align: center;
+  display: block;
+  align-items: center;
+  margin: auto;
+  padding: 10px;
+  font-family: 'Patrick Hand SC', cursive;
+  font-size: 20px;
+  opacity: 0.7;
 }
