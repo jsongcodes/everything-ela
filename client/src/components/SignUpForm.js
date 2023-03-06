@@ -30,7 +30,7 @@ const SignUpForm = ({onLogin}) => {
     return (
       <form onSubmit={handleSignup}>
         <FormField>
-          <Label htmlFor="username">Username</Label>
+          <Label htmlFor="username">username</Label>
           <Input
             type="text"
             id="username"
@@ -40,7 +40,7 @@ const SignUpForm = ({onLogin}) => {
           />
         </FormField>
         <FormField>
-          <Label htmlFor="password">Password</Label>
+          <Label htmlFor="password">password</Label>
           <Input
             type="password"
             id="password"
@@ -50,7 +50,7 @@ const SignUpForm = ({onLogin}) => {
           />
         </FormField>
         <FormField>
-        <Button type="submit">Sign Up</Button>
+        <Button type="submit">sign up</Button>
         </FormField>
         <FormField>
           {errors.map((err) => (

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Comments from "./Comments";
 
-const Post = ({ student }) => {
+const Post = ({ student, comments, setComments, studentId }) => {
   const [postInfo, setPostInfo] = useState([]);
   const params = useParams();
 
@@ -14,13 +14,12 @@ const Post = ({ student }) => {
 
   return (
     <div className="main-container">
-      <div className="post-item">
+      <div className="single-post-item">
         <h3 className="post-card-title">{postInfo.title}</h3>
         <img src={postInfo.image} className="postimage" alt="post" />
         <p className="post-card-description">{postInfo.body}</p>
       </div>
-
-      <Comments student={student} />
+      <Comments studentId={studentId} student={student} comments={comments} setComments={setComments} />
     </div>
   );
 };

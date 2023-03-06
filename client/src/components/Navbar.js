@@ -17,8 +17,8 @@ const Navbar = ( {student, setStudent, onLogout }) => {
       <button onClick={handleLogoutClick} className="nav-button">
         logout
       </button>
-      <Link to="/me" className="nav-button">
-        account
+      <Link to="/newpost" className="nav-button">
+        new post
       </Link>
       <Link to="/" className="nav-button">
         posts
