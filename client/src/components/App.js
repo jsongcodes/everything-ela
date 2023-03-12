@@ -12,7 +12,7 @@ const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [posts, setPosts] = useState([]);
   const [comments, setComments] = useState([]);
-  const [studentId, setStudentId] = useState(null);
+  // const [studentId, setStudentId] = useState(null);
 
   const addNewPost = (newPost) => {
     setPosts((posts) => [newPost, ...posts]);
@@ -27,7 +27,7 @@ const App = () => {
             id: student.id,
             username: student.username,
           });
-          setStudentId(student.id);
+          // setStudentId(student.id);
         });
       }
     });
@@ -51,10 +51,10 @@ const App = () => {
           <Posts posts={posts} setPosts={setPosts}/>
         </Route>
         <Route exact path="/newpost">
-          <PostForm studentId={studentId} addNewPost={addNewPost} posts={posts}/>
+          <PostForm studentId={student.id} addNewPost={addNewPost} posts={posts}/>
         </Route>
         <Route exact path="/posts/:id">
-          <Post studentId={studentId} student={student} comments={comments} setComments={setComments} />
+          <Post studentId={student.id} student={student} comments={comments} setComments={setComments} />
         </Route>
       </Switch>
     </div>
