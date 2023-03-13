@@ -21,6 +21,18 @@ class PostsController < ApplicationController
         render json: post, status: :created
     end
 
+    # def highest_poster
+    #     highest_count = 0
+    #     favorite_post = 'Nothing'
+    #     Post.all.each do |post|
+    #         if post.poster_count > highest_count
+    #             highest_count = post.poster_count
+    #             favorite_post = post
+    #         end
+    #     end
+    #     render json: favorite_post, status: :ok
+    # end
+
     private
     
     def find_post

@@ -3,6 +3,7 @@ import PostItem from "./PostItem";
 
 const Posts = ({ posts, setPosts }) => {
   const [dataIndex, setDataIndex] = useState(0);
+  const [highestPoster, setHighestPoster] = useState([]);
 
   useEffect(() => {
     fetch("/posts")
@@ -21,6 +22,12 @@ const Posts = ({ posts, setPosts }) => {
     setDataIndex((dataIndex) => (dataIndex - 3) % posts.length);
   }
 
+  const handleHighestPosterButtonClick = () => {
+    fetch('/students/highestposter')
+    .then(res => res.json())
+    .then(res => setHighestPoster(res))
+  }
+
   return (
     <div className="main-container">
       <div className="post-list">
@@ -36,6 +43,8 @@ const Posts = ({ posts, setPosts }) => {
             <i className="gg-chevron-right"></i>
           </button>
         </div>
+
+        <button onClick={handleHighestPosterButtonClick}>highest poster</button>
     </div>
   );
 };
