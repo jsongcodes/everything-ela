@@ -1,3 +1,7 @@
+Student.destroy_all
+Post.destroy_all
+Comment.destroy_all
+
 puts "seeding students..."
 
 student1 = Student.create(username: 'Moet', password: 'moet1')
