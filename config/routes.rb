@@ -1,18 +1,15 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
 
   resources :comments
-  resources :posts, only: [:index, :show, :create]
+  resources :posts, only: [:index, :show, :create, :destroy]
+  get '/posts/:id/comments', to: 'posts#comments'
 
   post "/signup", to: "students#create"
   get "/me", to: "students#show"
+  get "/students", to: "students#index"
+  
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
-  
-  get '/posts/:id/comments', to: 'posts#comments'
 
   get '*path',
       to: 'fallback#index',
