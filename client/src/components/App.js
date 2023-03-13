@@ -12,7 +12,6 @@ const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [posts, setPosts] = useState([]);
   const [comments, setComments] = useState([]);
-  // const [studentId, setStudentId] = useState(null);
 
   const addNewPost = (newPost) => {
     setPosts((posts) => [newPost, ...posts]);
@@ -27,7 +26,6 @@ const App = () => {
             id: student.id,
             username: student.username,
           });
-          // setStudentId(student.id);
         });
       }
     });
