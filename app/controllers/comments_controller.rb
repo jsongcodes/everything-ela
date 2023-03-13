@@ -8,16 +8,11 @@ class CommentsController < ApplicationController
         render json: comments, status: :ok
     end
 
+
     def show
         comment = find_comment
         render json: comment, status: :ok
     end
-
-    # def create
-    #    comment = Comment.create!(comment_params)
-    #     # comment = @current_user.comments.create!(comment_params)
-    #     render json: comment, status: :created
-    # end
 
     def create
         comment = Comment.create!(comment_params)
@@ -25,23 +20,12 @@ class CommentsController < ApplicationController
      end
 
     def update
-        # comment = find_comment
-        # if @current_user == comment.student
-        #     comment.update(comment_params)
-        #     render json: comment, status: :ok
-        # else
-        #     render json: { error: "Not authorized" }, status: :unauthorized
-        # end
         comment = find_comment
         comment.update!(comment_params)
         render json: comment, status: :accepted
     end
 
     def destroy
-        # comment = find_comment
-        # if @current_user == comment.student
-        #     comment.destroy
-        # end
         comment = find_comment
         comment.destroy
         head :no_content
