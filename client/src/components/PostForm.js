@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const PostForm = ({ addNewPost, studentId, posts }) => {
+const PostForm = ({ addNewPost, posts }) => {
   const [inputForm, setInputForm] = useState({
     title: "",
     image: "",
-    body: "",
-    student_id: studentId,
+    body: ""
   });
 
   const handleChange = (e) => {
@@ -23,7 +22,7 @@ const PostForm = ({ addNewPost, studentId, posts }) => {
       .then((response) => response.json())
       .then((data) => {
         addNewPost(data);
-        setInputForm({ title: "", image: "", body: "", student_id: studentId });
+        setInputForm({ title: "", image: "", body: ""});
       })
   };
 

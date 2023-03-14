@@ -15,20 +15,46 @@ class CommentsController < ApplicationController
     end
 
     def create
-        comment = Comment.create!(comment_params)
+        comment = @current_user.comments.create!(comment_params)
         render json: comment, status: :created
      end
 
+    # def update
+    #     comment = find_comment
+    #     comment.update!(body: params[:body])
+    #     render json: comment, status: :accepted
+    # end
+
     def update
+        # comment = Comment.find_by(id: params[:id])
+        # comment = find_comment
+        # comment.update!(comment_params)
+        # render json: comment, status: :accepted
         comment = find_comment
-        comment.update!(comment_params)
-        render json: comment, status: :accepted
+        if @current_user == comment.student
+            comment.update!(body: params[:body])
+            render json: comment, status: :accepted
+        else
+            render json: { error: "Not authorized" }, status: :unauthorized
+        end
     end
+    # check to see if they're the owner of the comment before editing
+    # if not, send an auth response
+
+    # def destroy
+    #     comment = find_comment
+    #     comment.destroy
+    #     head :no_content
+    # end
 
     def destroy
         comment = find_comment
-        comment.destroy
-        head :no_content
+        if @current_user == comment.student
+            comment.destroy
+            head :no_content
+        else
+            render json: { error: "Not authorized" }, status: :unauthorized
+        end
     end
 
     private
@@ -38,7 +64,9 @@ class CommentsController < ApplicationController
     end
 
     def comment_params
-        params.permit(:body, :post_id, :student_id)
+        params.permit(:body, :post_id)
     end
+
+    # fix update so that the currently logged in user can't edit another user's material.
 
 end
